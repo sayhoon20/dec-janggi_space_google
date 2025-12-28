@@ -1,0 +1,5 @@
+{
+  "name": "Janggi (Korean Chess)",
+  "description": "A web-based Janggi game interface with Stockfish engine integration, history saving, and score calculation.",
+  "requestFramePermissions": []
+}
