@@ -40,9 +40,12 @@ ipcMain.on('engine-start', (event) => {
   if (engineProcess) return;
 
   // 개발 환경과 배포 환경의 경로 처리
-  const enginePath = app.isPackaged 
-    ? path.join(process.resourcesPath, ENGINE_FILENAME)
-    : path.join(__dirname, '..', ENGINE_FILENAME);
+  // 개발 환경과 배포 환경의 경로 처리
+  // 개발: electron/bin/filename
+  // 배포: resources/bin/filename (extraResources 설정 필요)
+  const enginePath = app.isPackaged
+    ? path.join(process.resourcesPath, 'bin', ENGINE_FILENAME)
+    : path.join(__dirname, 'bin', ENGINE_FILENAME);
 
   try {
     console.log(`Attempting to spawn engine at: ${enginePath}`);
